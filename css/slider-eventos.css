@@ -1,0 +1,514 @@
+/*Este css se llama SLIDER-EVENTOS, es diferente al slider del index, en este no tiene boton ver-mas y tiene otros edits para q se vea mas texto*/
+/*solo funciona para la pagina-pestaña Eventos*/
+
+/*================== SLIDER EVENTOS ==================*/
+
+/* Contenedor principal del slider de eventos */
+.container-eventos {
+  position: relative;
+  width: 100%;
+  max-width: 95%;
+  background: transparent;
+  border-radius: 15px;
+  box-shadow: 0 30px 50px rgba(0,0,0,0.2);
+}
+
+/* Contenedor wrapper exclusivo del slider */
+.slider-wrapper-eventos {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  touch-action: pan-y;
+}
+
+/* Slide */
+.container-eventos .slide-eventos {
+  position: relative;
+  width: 100%;
+  height: 600px;
+}
+
+/* Item dentro del slide */
+.slide-eventos .item-eventos {
+  width: 200px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  border-radius: 20px;
+  background-position: 50% 50%;
+  background-size: cover;
+  display: inline-block;
+  transition: 0.5s;
+}
+
+/* Items principales */
+.slide-eventos .item-eventos:nth-child(1),
+.slide-eventos .item-eventos:nth-child(2){
+  top: 0;
+  left: 0;
+  transform: translate(0, 0);
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-eventos .item-eventos:nth-child(3){
+  left: 50%;
+}
+.slide-eventos .item-eventos:nth-child(4){
+  left: calc(50% + 220px);
+}
+.slide-eventos .item-eventos:nth-child(5){
+  left: calc(50% + 440px);
+}
+
+.slide-eventos .item-eventos:nth-child(n + 6){
+  left: calc(50% + 660px);
+  opacity: 0;
+}
+
+/* Contenido dentro del item */
+.item-eventos .content-eventos{
+  position: absolute;
+  top: 18%;
+  left: 100px;
+  width: 300px;
+  text-align: left;
+  color: #F9FAFA;
+  font-family: "Roboto", sans-serif;
+  display: none;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Mostrar el segundo item por defecto */
+.slide-eventos .item-eventos:nth-child(2) .content-eventos{
+  display: block;
+}
+
+/* Nombre */
+.content-eventos .name-eventos {
+  font-size: 48px;
+  color: #F5C518;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-family: 'Oswald','sans-serif';
+  opacity: 0;
+  animation: animate-eventos 1s ease-in-out 1 forwards;
+  white-space: pre-line;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Fecha */
+.content-eventos .fecha-eventos {
+  font-size: 20px;
+  color: #f9fafa;
+  margin-bottom: 8px;
+  font-family: 'Roboto', 'sans-serif';
+  opacity: 0;
+  animation: animate-eventos 1s ease-in-out 0.3s 1 forwards;
+}
+
+/* Descripción */
+.content-eventos .descripcion-eventos {
+  font-size: 16px;
+  color: #f9fafa;
+  margin-bottom: 20px;
+  font-family: 'Roboto', 'sans-serif';
+  line-height: 1.4;
+  opacity: 0;
+  animation: animate-eventos 1s ease-in-out 0.5s 1 forwards;
+  white-space: pre-line;
+  word-break: break-word;
+}
+
+/* Botón */
+.content-eventos button{
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  animation: animate-eventos 1s ease-in-out 0.6s 1 forwards;
+}
+
+/* Animación */
+@keyframes animate-eventos {
+  from{
+    opacity: 0;
+    transform: translate(0, 100px);
+    filter: blur(33px);
+  }
+  to{
+    opacity: 1;
+    transform: translate(0);
+    filter: blur(0);
+  }
+}
+
+/* Botones del slider */
+.button-eventos{
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 20px;
+}
+
+.button-eventos button{
+  width: 40px;
+  height: 35px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin: 0 5px;
+  border: 1px solid #212529;
+  transition: 0.3s;
+  background: #212529;
+  color: #f9fafa;
+}
+
+.button-eventos button:hover{
+  background: #F5C518;
+  color: #F9FAFA;
+}
+
+/* ================== XS (0 – 575px) ================== */
+@media (min-width: 430px) and (max-width: 575px) {
+
+  .container-eventos .slide-eventos {
+    height: 300px;
+    width: 520px;
+  }
+
+  .container-eventos .slide-eventos .item-eventos {
+    width: 120px;
+    height: 220px;
+    border-radius: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
+  .slide-eventos .item-eventos:nth-child(1),
+  .slide-eventos .item-eventos:nth-child(2){
+    width: 90%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translate(0,0);
+    border-radius: 10px;
+  }
+
+  .slide-eventos .item-eventos:nth-child(3){
+    left: 45%;
+    opacity: 0;
+  }
+  .slide-eventos .item-eventos:nth-child(4){
+    left: calc(45% + 160px);
+    opacity: 0;
+  }
+  .slide-eventos .item-eventos:nth-child(5){
+    left: calc(45% + 320px);
+    opacity: 0;
+  }
+  .slide-eventos .item-eventos:nth-child(n+6){
+    left: calc(45% + 480px);
+    opacity: 0;
+  }
+
+  /* Contenido */
+  .item-eventos .content-eventos{
+    bottom: 10%;
+    left: 10%;
+    width: 80%;
+    text-align: left;
+  }
+
+  .content-eventos .name-eventos{
+    font-size: 22px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+
+  .content-eventos .descripcion-eventos{
+    font-size: 12px;
+    line-height: 1.4;
+    max-width: 100%;
+    margin-bottom: 10px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .content-eventos .fecha-eventos{
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .button-eventos button{
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    margin: 0 4px;
+  }
+}
+
+
+/* ================== XS Ajuste fino (0 – 429px) ================== */
+@media (max-width: 429px) {
+
+  .container-eventos .slide-eventos {
+    height: 300px;
+    width: 390px;
+  }
+
+  .container-eventos .slide-eventos .item-eventos {
+    width: 100px;
+    height: 220px;
+    border-radius: 12px;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
+  .slide-eventos .item-eventos:nth-child(1),
+  .slide-eventos .item-eventos:nth-child(2){
+    width: 90%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translate(0,0);
+    border-radius: 10px;
+  }
+
+  .slide-eventos .item-eventos:nth-child(3){
+    left: 45%;
+    opacity: 0;
+  }
+  .slide-eventos .item-eventos:nth-child(4){
+    left: calc(45% + 160px);
+    opacity: 0;
+  }
+  .slide-eventos .item-eventos:nth-child(5){
+    left: calc(45% + 320px);
+    opacity: 0;
+  }
+  .slide-eventos .item-eventos:nth-child(n+6){
+    left: calc(45% + 480px);
+    opacity: 0;
+  }
+
+  /* Contenido */
+  .item-eventos .content-eventos{
+    bottom: 10%;
+    left: 10%;
+    width: 80%;
+    text-align: left;
+  }
+
+  .content-eventos .name-eventos{
+    font-size: 22px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+
+  .content-eventos .descripcion-eventos{
+    font-size: 12px;
+    line-height: 1.4;
+    max-width: 90%;
+    margin-bottom: 10px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .content-eventos .fecha-eventos{
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .button-eventos button{
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    margin: 0 4px;
+  }
+}
+
+
+/* ================== S (Small) ================== */
+@media (min-width: 577px) and (max-width: 672px) {
+  .container-eventos .slide-eventos {
+    height: 500px;
+  }
+  .item-eventos .content-eventos {
+    left: 12px;
+    width: 85%;
+    text-align: left;
+  }
+  .content-eventos .name-eventos {
+    font-size: 36px;
+    text-align: left;
+  }
+  .content-eventos .fecha-eventos {
+    font-size: 18px;
+  }
+  .content-eventos .descripcion-eventos {
+    font-size: 14px;
+    line-height: 1.4;
+    width: 200px;
+    max-width: 65%;
+    white-space: pre-line;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    margin: 5px 0;
+    text-align: left;
+  }
+}
+
+/* Tamaño S (576px – 767px) */
+@media (min-width: 673px) and (max-width: 767px) {
+  .container-eventos .slide-eventos {
+    height: 550px;
+  }
+  .item-eventos .content-eventos {
+    left: 25px;
+    width: 80%;
+    text-align: left;
+  }
+  .content-eventos .name-eventos {
+    font-size: 36px;
+    text-align: left;
+  }
+  .content-eventos .fecha-eventos {
+    font-size: 18px;
+  }
+  .content-eventos .descripcion-eventos {
+    font-size: 14px;
+    line-height: 1.4;
+    width: 215px;
+    max-width: 70%;
+    white-space: pre-line;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    margin: 5px 0;
+    text-align: left;
+  }
+}
+
+/* ================== M (Medium) ================== */
+@media (min-width: 768px) and (max-width: 900px) {
+  .container-eventos .slide-eventos {
+    height: 450px;
+  }
+  .item-eventos .content-eventos {
+    left: 80px;
+    width: 80%;
+  }
+  .content-eventos .name-eventos {
+    font-size: 32px;
+    text-align: left;
+  }
+  .content-eventos .fecha-eventos {
+    font-size: 16px;
+  }
+  .content-eventos .descripcion-eventos {
+    font-size: 12px;
+    line-height: 1.4;
+    width: 230px;
+    max-width: 65%;
+    white-space: pre-line;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    margin: 2px 0;
+    text-align: left;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 991px) {
+  .container-eventos .slide-eventos {
+    height: 550px;
+  }
+  .content-eventos .name-eventos {
+    font-size: 36px;
+  }
+  .content-eventos .fecha-eventos {
+    font-size: 18px;
+  }
+  .content-eventos .descripcion-eventos {
+    font-size: 16px;
+  }
+}
+
+/* ================== L (Large) ================== */
+@media (min-width: 992px) and (max-width: 1099px) {
+  .container-eventos .slide-eventos {
+    height: 500px;
+    min-height: 70vh;
+    max-height: 90vh;
+  }
+  .content-eventos .name-eventos {
+    font-size: 2rem;
+  }
+  .content-eventos .fecha-eventos {
+    font-size: 1rem;
+  }
+  .content-eventos .descripcion-eventos {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
+/* Monitores un poco más grandes (1100–1199) */
+@media (min-width: 1100px) and (max-width: 1199px) {
+  .container-eventos .slide-eventos {
+    height: 650px;
+  }
+}
+
+/* ================== XL (Extra Large) ================== */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .container-eventos .slide-eventos {
+    height: 600px;
+  }
+  .content-eventos .name-eventos {
+    font-size: 40px;
+  }
+  .content-eventos .fecha-eventos {
+    font-size: 20px;
+  }
+  .content-eventos .descripcion-eventos {
+    font-size: 18px;
+  }
+}
+
+/* ================== XXL (1400px en adelante) ================== */
+@media (min-width: 1400px) {
+  .container-eventos {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .container-eventos .slide-eventos {
+    height: 600px;
+  }
+  .item-eventos .content-eventos {
+    top: 18%;
+    left: 80px;
+    width: 40%;
+    max-width: 420px;
+    max-height: none;
+    overflow: visible;
+  }
+  .content-eventos .name-eventos {
+    font-size: 42px;
+  }
+  .content-eventos .fecha-eventos {
+    font-size: 20px;
+  }
+  .content-eventos .descripcion-eventos {
+    font-size: 18px;
+    line-height: 1.5;
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    overflow: visible;
+  }
+}
